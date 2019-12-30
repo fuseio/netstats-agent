@@ -33,6 +33,6 @@ for (( i=0; i<${#ARG_VEC[@]}; i++ )) ; do
 done
 
 cd /home/ethnetintel/eth-net-intelligence-api
-jq -r --arg in "${instance_name}" --arg bv "${bridge_version}" '.[0].env.INSTANCE_NAME |= $in | .[0].env.BRIDGE_VERSION |= $bv | .[0].env.WS_SECRET |= "i5WsUJWaMUHOS2CwvTRy"' app.json.example > app.json
+jq -r --arg in "${instance_name}" --arg bv "${bridge_version}" '.[0].env.INSTANCE_NAME |= $in | .[0].env.BRIDGE_VERSION |= $bv | .[0].env.WS_SERVER |= "https://health-testnet.fuse.io" | .[0].env.WS_SECRET |= "jV65F6mWkDy6oCbddiXZ"' app.json.example > app.json
 /usr/bin/pm2 start ./app.json
 /usr/bin/pm2 logs netstat_daemon --lines 1000
